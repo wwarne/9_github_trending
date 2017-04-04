@@ -22,16 +22,16 @@ def get_trending_repositories(top_size):
 
 
 def print_trending_repositories(repos_data):
-    if repos_data:
-        print('The most popular repositories created in the past week')
-        for idx, repository in enumerate(repos_data, start=1):
-            print('{}. Name: {} | Stars: {} | Issues: {} | URL: {}'.format(idx,
-                                                                           repository['name'],
-                                                                           repository['stargazers_count'],
-                                                                           repository['open_issues_count'],
-                                                                           repository['html_url']))
-    else:
+    if not repos_data:
         print('No information about repositories')
+        return
+    print('The most popular repositories created in the past week')
+    for idx, repository in enumerate(repos_data, start=1):
+        print('{}. Name: {} | Stars: {} | Issues: {} | URL: {}'.format(idx,
+                                                                       repository['name'],
+                                                                       repository['stargazers_count'],
+                                                                       repository['open_issues_count'],
+                                                                       repository['html_url']))
 
 
 if __name__ == '__main__':

@@ -17,7 +17,6 @@ def get_trending_repositories(top_size):
     response = requests.get('https://api.github.com/search/repositories', params=request_params, headers=request_headers)
     if response.status_code == 200:
         return response.json()['items']
-    return None
 
 
 def print_trending_repositories(repos_data):
